@@ -3,6 +3,10 @@ if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
   include_directories(${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR})
 endif()
 
+if (DEFINED EXTRA_LINK_DIRECTORIES)
+  link_directories (${Casablanca_LIBRARY} ${EXTRA_LINK_DIRECTORIES})
+endif()
+
 set(SOURCES_COMMON
   http/client/http_client_msg.cpp
   http/client/x509_cert_utilities.cpp
